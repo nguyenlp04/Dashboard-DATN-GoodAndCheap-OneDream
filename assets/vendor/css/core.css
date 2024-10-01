@@ -9588,6 +9588,10 @@ button.list-group-item-gray.active {
   margin-bottom: 3rem !important;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem !important;
+}
+
 .mb-auto {
   margin-bottom: auto !important;
 }

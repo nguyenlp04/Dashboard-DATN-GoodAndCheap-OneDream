@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | OneDream Dashboard</title>
+    <title>Vertical Layouts - Forms | OneDream Dashboard</title>
 
     <meta name="description" content="" />
 
@@ -52,8 +52,6 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
@@ -129,7 +127,7 @@
                   </g>
                 </svg>
               </span>
-<span class="app-brand-text demo menu-text fw-bolder ms-2">OneDream</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">OneDream</span>
 
             </a>
 
@@ -142,7 +140,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
+            <li class="menu-item">
               <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -151,13 +149,13 @@
 
 
             <!-- Product Management -->
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Product Management">Product </div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="add-product.html" class="menu-link">
                     <div data-i18n="Add Product">Add Product</div>
                   </a>
@@ -613,539 +611,338 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="row">
-                <div class="col-lg-8 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
+            <div class="container-xxl flex-grow-1 container-p-y" data-select2-id="22">
+            
+            
+                <div class="app-ecommerce" data-select2-id="21">
+                
+                  <!-- Add Product -->
+                  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 row-gap-4">
+                
+                    <div class="d-flex flex-column justify-content-center">
+                      <h4 class="mb-1">Add a new Product</h4>
+                    </div>
+                    <div class="d-flex align-content-center flex-wrap gap-4">
+                      <div class="d-flex gap-4"><button class="btn btn-label-secondary">Discard</button>
+                        <button class="btn btn-label-primary">Save draft</button></div>
+                      <button type="submit" class="btn btn-primary" id="btn-publish-product">Publish product</button>
+                    </div>
+                
+                  </div>
+                
+                  <div class="row" data-select2-id="20">
+                
+                    <!-- First column-->
+                    <div class="col-12 col-lg-8">
+                      <!-- Product Information -->
+                      <div class="card mb-6">
+                        <div class="card-header">
+                          <h5 class="card-tile mb-0">Product information</h5>
+                        </div>
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
-                          <p class="mb-4">
-                            You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
-                            your profile.
-                          </p>
+                          <div class="mb-6">
+                            <label class="form-label" for="ecommerce-product-name">Name</label>
+                            <input type="text" class="form-control" id="ecommerce-product-name" placeholder="Product title" name="productTitle" aria-label="Product title">
+                          </div>
+                          <!-- Description -->
+                          <div>
+                            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Product Information -->
+                      <!-- Media -->
+                      <script src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/libs/dropzone/dropzone.js"></script>
+                      <link rel="stylesheet" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/libs/dropzone/dropzone.css">
+                      <div class="card mb-6">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                          <h5 class="mb-0 card-title">Product Image</h5>
+                        </div>
+                        <div class="card-body">
+                          <form action="/upload" class="dropzone needsclick p-0 dz-clickable" id="dropzone-basic">
+                            <div class="dz-message needsclick">
+                              <p class="h4 needsclick pt-4 mb-2">Drag and drop your image here</p>
+                              <p class="h6 text-muted d-block fw-normal mb-2">or</p>
+                              <button type="button" class="btn btn-sm btn-outline-primary" id="btnBrowse">Browse image</button>
+                            </div>
+                            
+                          </form>
+                        </div>
+                      </div>
+                      <!-- /Media -->
+                      <!-- Variants -->
+                      <div class="card mb-6">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Variants</h5>
+                            <button type="button" class="btn btn-primary" id="btn-add-variant">
+                                <i class="bx bx-plus bx-sm me-2"></i>
+                                Add Variant
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="add-variant">
+                        <!-- New variants will be inserted here -->
+                    </div>
+                  
+                     <!-- Variants List -->
+                     <div class="card mb-6">
+                        <div class="card-header">
+                          <h5 class="card-tile mb-0">Variants List</h5>
+                        </div>
+                        <div class="card-body">
+                            <table id="variant-list-table" class="table table-bordered">
+                                <thead>
+                                    <tr id="variant-list-header">
+                                        <!-- Variant headers will be dynamically added here -->
+                                    </tr>
+                                </thead>
+                                <tbody id="variant-list-body">
+                                    <!-- Variant combinations will be added here -->
+                                </tbody>
+                            </table>
+                         
+                        </div>
+                      </div>
+                      <!-- /Variants List -->
+                    <script>
+                     let variants = [];
 
-                          <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
-                        </div>
-                      </div>
-                      <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/man-with-laptop-light.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 order-1">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="card-title d-flex align-items-start justify-content-between">
-                            <div class="avatar flex-shrink-0">
-                              <img
-                                src="../assets/img/icons/unicons/chart-success.png"
-                                alt="chart success"
-                                class="rounded"
-                              />
-                            </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt3"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                              </div>
-                            </div>
-                          </div>
-                          <span class="fw-semibold d-block mb-1">Profit</span>
-                          <h3 class="card-title mb-2">$12,628</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="card-title d-flex align-items-start justify-content-between">
-                            <div class="avatar flex-shrink-0">
-                              <img
-                                src="../assets/img/icons/unicons/wallet-info.png"
-                                alt="Credit Card"
-                                class="rounded"
-                              />
-                            </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt6"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                              </div>
-                            </div>
-                          </div>
-                          <span>Sales</span>
-                          <h3 class="card-title text-nowrap mb-1">$4,679</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Total Revenue -->
-                <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
-                  <div class="card">
-                    <div class="row row-bordered g-0">
-                      <div class="col-md-8">
-                        <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
-                        <div id="totalRevenueChart" class="px-2"></div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="card-body">
-                          <div class="text-center">
-                            <div class="dropdown">
-                              <button
-                                class="btn btn-sm btn-outline-primary dropdown-toggle"
-                                type="button"
-                                id="growthReportId"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                2022
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
-                                <a class="dropdown-item" href="javascript:void(0);">2021</a>
-                                <a class="dropdown-item" href="javascript:void(0);">2020</a>
-                                <a class="dropdown-item" href="javascript:void(0);">2019</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="growthChart"></div>
-                        <div class="text-center fw-semibold pt-3 mb-2">62% Company Growth</div>
+                    // Add variant button event listener
+                    document.getElementById('btn-add-variant').addEventListener('click', function () {
+                        createVariantCard();
+                    });
 
-                        <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
-                          <div class="d-flex">
-                            <div class="me-2">
-                              <span class="badge bg-label-primary p-2"><i class="bx bx-dollar text-primary"></i></span>
+                    // Function to create a new variant card
+                    function createVariantCard(variantData = { variant: '', options: [''] }) {
+                        const variantHTML = `
+                            <div class="card mb-6 variant-card">
+                                <div class="card-header">
+                                    <span class="card-title mb-0">Name Variant</span>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control option-input" placeholder="Select Or Enter A Variation" value="${variantData.variant}">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="mb-0">Option</span>
+                                    <div class="options-container">
+                                        ${variantData.options.map(option => `
+                                            <div class="col-12 mt-2">
+                                                <input type="text" class="form-control option-value" placeholder="Enter an Option" value="${option}">
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                    <div class="col-12 mt-3 text-end">
+                                        <button type="button" class="btn btn-primary btn-done" disabled>Done</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex flex-column">
-                              <small>2022</small>
-                              <h6 class="mb-0">$32.5k</h6>
-                            </div>
-                          </div>
-                          <div class="d-flex">
-                            <div class="me-2">
-                              <span class="badge bg-label-info p-2"><i class="bx bx-wallet text-info"></i></span>
-                            </div>
-                            <div class="d-flex flex-column">
-                              <small>2021</small>
-                              <h6 class="mb-0">$41.2k</h6>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--/ Total Revenue -->
-                <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
-                  <div class="row">
-                    <div class="col-6 mb-4">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="card-title d-flex align-items-start justify-content-between">
-                            <div class="avatar flex-shrink-0">
-                              <img src="../assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
-                            </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt4"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                              </div>
-                            </div>
-                          </div>
-                          <span class="d-block mb-1">Payments</span>
-                          <h3 class="card-title text-nowrap mb-2">$2,456</h3>
-                          <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-6 mb-4">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="card-title d-flex align-items-start justify-content-between">
-                            <div class="avatar flex-shrink-0">
-                              <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
-                            </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt1"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="cardOpt1">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                              </div>
-                            </div>
-                          </div>
-                          <span class="fw-semibold d-block mb-1">Transactions</span>
-                          <h3 class="card-title mb-2">$14,857</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- </div>
-    <div class="row"> -->
-                    <div class="col-12 mb-4">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
-                            <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
-                              <div class="card-title">
-                                <h5 class="text-nowrap mb-2">Profile Report</h5>
-                                <span class="badge bg-label-warning rounded-pill">Year 2021</span>
-                              </div>
-                              <div class="mt-sm-auto">
-                                <small class="text-success text-nowrap fw-semibold"
-                                  ><i class="bx bx-chevron-up"></i> 68.2%</small
-                                >
-                                <h3 class="mb-0">$84,686k</h3>
-                              </div>
-                            </div>
-                            <div id="profileReportChart"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <!-- Order Statistics -->
-                <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                      <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Order Statistics</h5>
-                        <small class="text-muted">42.82k Total Sales</small>
-                      </div>
-                      <div class="dropdown">
-                        <button
-                          class="btn p-0"
-                          type="button"
-                          id="orederStatistics"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
-                          <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex flex-column align-items-center gap-1">
-                          <h2 class="mb-2">8,258</h2>
-                          <span>Total Orders</span>
-                        </div>
-                        <div id="orderStatisticsChart"></div>
-                      </div>
-                      <ul class="p-0 m-0">
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-primary"
-                              ><i class="bx bx-mobile-alt"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">Electronic</h6>
-                              <small class="text-muted">Mobile, Earbuds, TV</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">82.5k</small>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-success"><i class="bx bx-closet"></i></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">Fashion</h6>
-                              <small class="text-muted">T-shirt, Jeans, Shoes</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">23.8k</small>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-info"><i class="bx bx-home-alt"></i></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">Decor</h6>
-                              <small class="text-muted">Fine Art, Dining</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">849k</small>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-secondary"
-                              ><i class="bx bx-football"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">Sports</h6>
-                              <small class="text-muted">Football, Cricket Kit</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">99</small>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!--/ Order Statistics -->
+                        `;
+                        document.getElementById('add-variant').insertAdjacentHTML('beforeend', variantHTML);
+                        addBlurEventToOptionInputs();
+                        addDoneButtonEventListener();
+                        validateVariantInputs();
+                    }
 
-                <!-- Expense Overview -->
-                <div class="col-md-6 col-lg-4 order-1 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header">
-                      <ul class="nav nav-pills" role="tablist">
-                        <li class="nav-item">
-                          <button
-                            type="button"
-                            class="nav-link active"
-                            role="tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#navs-tabs-line-card-income"
-                            aria-controls="navs-tabs-line-card-income"
-                            aria-selected="true"
-                          >
-                            Income
-                          </button>
-                        </li>
-                        <li class="nav-item">
-                          <button type="button" class="nav-link" role="tab">Expenses</button>
-                        </li>
-                        <li class="nav-item">
-                          <button type="button" class="nav-link" role="tab">Profit</button>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="card-body px-0">
-                      <div class="tab-content p-0">
-                        <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
-                          <div class="d-flex p-4 pt-3">
-                            <div class="avatar flex-shrink-0 me-3">
-                              <img src="../assets/img/icons/unicons/wallet.png" alt="User" />
-                            </div>
-                            <div>
-                              <small class="text-muted d-block">Total Balance</small>
-                              <div class="d-flex align-items-center">
-                                <h6 class="mb-0 me-1">$459.10</h6>
-                                <small class="text-success fw-semibold">
-                                  <i class="bx bx-chevron-up"></i>
-                                  42.9%
-                                </small>
-                              </div>
-                            </div>
-                          </div>
-                          <div id="incomeChart"></div>
-                          <div class="d-flex justify-content-center pt-4 gap-2">
-                            <div class="flex-shrink-0">
-                              <div id="expensesOfWeek"></div>
-                            </div>
-                            <div>
-                              <p class="mb-n1 mt-1">Expenses This Week</p>
-                              <small class="text-muted">$39 less than last week</small>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--/ Expense Overview -->
+                    // Function to add blur event listeners to option inputs
+                    function addBlurEventToOptionInputs() {
+                        const optionInputs = document.querySelectorAll('.option-value');
+                        optionInputs[optionInputs.length - 1].addEventListener('blur', function () {
+                            if (this.value.trim() !== '' && !this.nextElementSibling?.classList?.contains('option-value')) {
+                                const newInputHTML = `
+                                    <div class="col-12 mt-2">
+                                        <input type="text" class="form-control option-value" placeholder="Enter an Option">
+                                    </div>
+                                `;
+                                this.parentElement.insertAdjacentHTML('afterend', newInputHTML);
+                                addBlurEventToOptionInputs();
+                            }
+                            validateVariantInputs();
+                        });
+                    }
 
-                <!-- Transactions -->
-                <div class="col-md-6 col-lg-4 order-2 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="card-title m-0 me-2">Transactions</h5>
-                      <div class="dropdown">
-                        <button
-                          class="btn p-0"
-                          type="button"
-                          id="transactionID"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-                          <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                    // Function to validate variant inputs and control "Done" button state
+                    function validateVariantInputs() {
+                        const variantCards = document.querySelectorAll('.variant-card');
+                        variantCards.forEach(function (card) {
+                            const nameVariantInput = card.querySelector('.option-input');
+                            const optionInputs = card.querySelectorAll('.option-value');
+                            const doneButton = card.querySelector('.btn-done');
+
+                            const isNameVariantValid = nameVariantInput.value.trim() !== '';
+                            const isAtLeastOneOptionValid = Array.from(optionInputs).some(input => input.value.trim() !== '');
+
+                            doneButton.disabled = !(isNameVariantValid && isAtLeastOneOptionValid);
+                        });
+                    }
+
+                    // Function to add event listeners to "Done" buttons
+                    function addDoneButtonEventListener() {
+                        const doneButtons = document.querySelectorAll('.btn-done');
+                        doneButtons[doneButtons.length - 1].addEventListener('click', function () {
+                            const variantCard = this.closest('.variant-card');
+                            const nameVariantInput = variantCard.querySelector('.option-input');
+                            const optionInputs = variantCard.querySelectorAll('.option-value');
+
+                            if (this.textContent === 'Done') {
+                                // Remove the last empty input if it exists
+                                if (optionInputs.length > 0 && optionInputs[optionInputs.length - 1].value.trim() === '') {
+                                    optionInputs[optionInputs.length - 1].parentElement.remove();
+                                }
+
+                                // Save the variant to the variants list
+                                const variantName = nameVariantInput.value.trim();
+                                const options = Array.from(optionInputs).map(input => input.value.trim()).filter(val => val !== '');
+
+                                // Update the variants array (check if variant already exists)
+                                const existingVariantIndex = variants.findIndex(v => v.variantName === variantName);
+                                if (existingVariantIndex !== -1) {
+                                    // Update the existing variant
+                                    variants[existingVariantIndex].options = options;
+                                } else {
+                                    // Add a new variant
+                                    if (variantName && options.length > 0) {
+                                        variants.push({ variantName: variantName, options: options });
+                                    }
+                                }
+
+                                // Generate the combinations table
+                                generateVariantCombinationsTable();
+
+                                // Disable input fields after done
+                                optionInputs.forEach(input => input.disabled = true);
+                                nameVariantInput.disabled = true;
+                                this.textContent = 'Edit';
+
+                            } else {
+                                // Enable input fields for editing
+                                optionInputs.forEach(input => input.disabled = false);
+                                nameVariantInput.disabled = false;
+
+                                // Add a new empty input option automatically when editing
+                                const newInputHTML = `
+                                    <div class="col-12 mt-2">
+                                        <input type="text" class="form-control option-value" placeholder="Enter an Option">
+                                    </div>
+                                `;
+                                variantCard.querySelector('.options-container').insertAdjacentHTML('beforeend', newInputHTML);
+                                addBlurEventToOptionInputs();
+
+                                this.textContent = 'Done';
+                            }
+                        });
+                    }
+
+                    // Function to generate the variant combinations table
+                    function generateVariantCombinationsTable() {
+                        const headers = document.getElementById('variant-list-header');
+                        const body = document.getElementById('variant-list-body');
+
+                        // Clear previous headers and rows
+                        headers.innerHTML = '';
+                        body.innerHTML = '';
+                        console.log(variants);
+                        
+                        // Create table headers
+                        variants.forEach(variant => {
+                            const th = document.createElement('th');
+                            th.textContent = variant.variantName;
+                            headers.appendChild(th);
+                        });
+
+                        headers.innerHTML += '<th>Quantity</th><th>Price</th>';
+
+                        // Generate combinations
+                        const combinations = generateCombinations(variants.map(v => v.options));
+                        console.log("combinations: ", combinations);
+
+                        // Create table rows for each combination
+                        combinations.forEach(combination => {
+                            const row = document.createElement('tr');
+                            combination.forEach(value => {
+                                const td = document.createElement('td');
+                                td.textContent = value;
+                                row.appendChild(td);
+                            });
+
+                            // Add quantity and price fields
+                            row.innerHTML += `
+                                <td><input type="number" class="form-control" placeholder="Quantity"></td>
+                                <td><input type="number" class="form-control" placeholder="Price"></td>
+                            `;
+                            body.appendChild(row);
+                        });
+                    }
+
+                    // Helper function to generate all combinations of options
+                    function generateCombinations(arrays) {
+                        return arrays.reduce((acc, curr) => {
+                            const result = [];
+                            acc.forEach(a => {
+                                curr.forEach(c => {
+                                    result.push([...a, c]);
+                                });
+                            });
+                            return result;
+                        }, [[]]);
+                    }
+
+                    </script>
+                      <!-- /Variants -->
+                     
+                    
+                    </div>
+                    <!-- /Second column -->
+                
+                    <!-- Second column -->
+                    <div class="col-12 col-lg-4" data-select2-id="19">
+                      <!-- Organize Card -->
+                      <div class="card mb-6" data-select2-id="18">
+                        <div class="card-header">
+                          <h5 class="card-title mb-0">Organize</h5>
+                        </div>
+                        <div class="card-body" data-select2-id="17">
+                          <!-- Vendor -->
+                          <div class="mb-6 col ecommerce-select2-dropdown" data-select2-id="35">
+                            <label class="form-label mb-1" for="vendor">
+                                Category
+                            </label>
+                            <div class="position-relative" data-select2-id="34"><select id="vendor" class="select2 form-select select2-hidden-accessible" data-placeholder="Select Vendor" data-select2-id="vendor" tabindex="-1" aria-hidden="true">
+                              <option value="men-clothing" data-select2-id="36">Men's Clothing</option>
+                              <option value="women-clothing" data-select2-id="37">Women's-clothing</option>
+                              <option value="kid-clothing" data-select2-id="38">Kid's-clothing</option>
+                            </select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="5" style="width: 310.664px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-vendor-container"><span class="select2-selection__rendered" id="select2-vendor-container" role="textbox" aria-readonly="true" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                          </div>
+                          <!-- Collection -->
+                          <div class="mb-6 col ecommerce-select2-dropdown" data-select2-id="41">
+                            <label class="form-label mb-1" for="collection">Subcategory
+                            </label>
+                            <div class="position-relative" data-select2-id="40"><select id="collection" class="select2 form-select select2-hidden-accessible" data-placeholder="Collection" data-select2-id="collection" tabindex="-1" aria-hidden="true">
+                              <option value="men-clothing" data-select2-id="42">Men's Clothing</option>
+                              <option value="women-clothing" data-select2-id="43">Women's-clothing</option>
+                              <option value="kid-clothing" data-select2-id="44">Kid's-clothing</option>
+                            </select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="9" style="width: 310.664px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-collection-container"><span class="select2-selection__rendered" id="select2-collection-container" role="textbox" aria-readonly="true" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                          </div>
+                          <!-- Status -->
+                          <div class="mb-6 col ecommerce-select2-dropdown" data-select2-id="47">
+                            <label class="form-label mb-1" for="status-org">Status
+                            </label>
+                            <div class="position-relative" data-select2-id="46"><select id="status-org" class="select2 form-select select2-hidden-accessible" data-placeholder="Published" data-select2-id="status-org" tabindex="-1" aria-hidden="true">
+                              <option value="Published" data-select2-id="48">Published</option>
+                              <option value="Scheduled" data-select2-id="49">Scheduled</option>
+                              <option value="Inactive" data-select2-id="50">Inactive</option>
+                            </select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="11" style="width: 310.664px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-status-org-container"><span class="select2-selection__rendered" id="select2-status-org-container" role="textbox" aria-readonly="true" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                          </div>
+                          <!-- Tags -->
                         </div>
                       </div>
+                      <!-- /Organize Card -->
                     </div>
-                    <div class="card-body">
-                      <ul class="p-0 m-0">
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">Paypal</small>
-                              <h6 class="mb-0">Send money</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">+82.6</h6>
-                              <span class="text-muted">USD</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">Wallet</small>
-                              <h6 class="mb-0">Mac'D</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">+270.69</h6>
-                              <span class="text-muted">USD</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <img src="../assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">Transfer</small>
-                              <h6 class="mb-0">Refund</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">+637.91</h6>
-                              <span class="text-muted">USD</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <img src="../assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">Credit Card</small>
-                              <h6 class="mb-0">Ordered Food</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">-838.71</h6>
-                              <span class="text-muted">USD</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">Wallet</small>
-                              <h6 class="mb-0">Starbucks</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">+203.33</h6>
-                              <span class="text-muted">USD</span>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <img src="../assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <small class="text-muted d-block mb-1">Mastercard</small>
-                              <h6 class="mb-0">Ordered Food</h6>
-                            </div>
-                            <div class="user-progress d-flex align-items-center gap-1">
-                              <h6 class="mb-0">-92.45</h6>
-                              <span class="text-muted">USD</span>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
+                    <!-- /Second column -->
                   </div>
                 </div>
-                <!--/ Transactions -->
-              </div>
-            </div>
+                          </div>
             <!-- / Content -->
 
             <!-- Footer -->
@@ -1155,7 +952,7 @@
                   ©
                   <script>
                     document.write(new Date().getFullYear());
-                  </script>
+                </script>
                   , made with ❤️ by
                   <a href="https://OneDream.com" target="_blank" class="footer-link fw-bolder">OneDream</a>
                 </div>
@@ -1189,13 +986,11 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="../assets/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
